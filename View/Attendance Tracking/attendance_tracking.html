@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Tracking</title>
+    <link rel="stylesheet" href="attendance_tracking.css">
+</head>
+<body>
+    <h2>Employee Attendance Tracking</h2>
+
+    <form id="attendanceForm">
+        <input type="text" id="employeeName" placeholder="Employee Name" required>
+        <input type="date" id="attendanceDate" required>
+        <select id="status" required>
+            <option value="">Select Status</option>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+            <option value="Remote">Remote</option>
+            <option value="On Leave">On Leave</option>
+        </select>
+        <button type="submit">Mark Attendance</button>
+    </form>
+
+    <h3>Attendance Records</h3>
+    <table id="attendanceTable">
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="attendance_tracking.js"></script>
+</body>
+</html>

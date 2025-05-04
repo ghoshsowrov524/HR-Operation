@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header>
+    <h1>HR Dashboard</h1>
+    <p>Overview of Key HR Activities</p>
+</header>
+
+<div class="dashboard-container">
+    <div class="card">
+        <h3>Attendance Overview</h3>
+        <p>Last Attendance: <span id="lastAttendance">Loading...</span></p>
+        <button onclick="location.href='attendance_tracking.html'">View Attendance</button>
+    </div>
+    
+    <div class="card">
+        <h3>Leave Requests</h3>
+        <p>Total Pending: <span id="pendingLeave">Loading...</span></p>
+        <button onclick="location.href='leave_management.html'">View Requests</button>
+    </div>
+    
+    <div class="card">
+        <h3>Performance Insights</h3>
+        <p>Total Insights: <span id="totalInsights">Loading...</span></p>
+        <button onclick="location.href='performance_insights.html'">View Insights</button>
+    </div>
+
+    <div class="card">
+        <h3>Employee Feedback</h3>
+        <p>Total Feedback: <span id="totalFeedback">Loading...</span></p>
+        <button onclick="location.href='employee_feedback.html'">View Feedback</button>
+    </div>
+
+    <div class="card">
+        <h3>Leave Management</h3>
+        <p>Total Pending Leave Requests: <span id="totalPendingLeave">Loading...</span></p>
+        <button onclick="location.href='leave_management.html'">Manage Leave</button>
+    </div>
+    <div class="card">
+        <h3>Contact HR</h3>
+        <p>Have a question or need help?</p>
+        <button onclick="location.href='contact_us.html'">Contact Us</button>
+    </div>
+    
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
