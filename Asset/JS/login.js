@@ -1,56 +1,92 @@
-function showForm(formId) {
-  document.querySelectorAll('.form').forEach(form => form.classList.remove('active'));
-  document.getElementById(formId).classList.add('active');
-}
+// Login Validation with redirect
+function validateLoginForm() {
+  const emailElement = document.getElementById('loginEmail');
+  const passwordElement = document.getElementById('loginPassword');
 
-// Simple email validation without regex
-function isValidEmail(email) {
-  return email.includes('@') && email.includes('.') && email.indexOf('@') < email.lastIndexOf('.');
-}
+  if (!emailElement || !passwordElement) {
+    alert("Email or password input not found.");
+    return false;
+  }
 
-function handleLogin() {
-  const email = document.getElementById('loginEmail').value.trim();
-  const password = document.getElementById('loginPassword').value.trim();
+  const email = emailElement.value.trim();
+  const password = passwordElement.value.trim();
 
   if (!email || !password) {
-    alert("Please enter both email and password.");
-    return;
-  }
-
-  if (!isValidEmail(email)) {
-    alert("Invalid email format.");
-    return;
-  }
-
-  if (password.length < 6) {
-    alert("Password must be at least 6 characters.");
-    return;
-  }
-
-  // Simulate login success
-  window.location.href = "dashboard.html";
-}
-
-function handleSignup() {
-  const name = document.getElementById('signupName').value.trim();
-  const email = document.getElementById('signupEmail').value.trim();
-  const password = document.getElementById('signupPassword').value.trim();
-
-  if (!name || !email || !password) {
     alert("Please fill in all fields.");
-    return;
-  }
-
-  if (!isValidEmail(email)) {
-    alert("Invalid email format.");
-    return;
+    return false;
   }
 
   if (password.length < 6) {
     alert("Password must be at least 6 characters.");
-    return;
+    return false;
   }
 
-  alert("Signup successful! Please login.");
-  showForm('login');
+  if (email === "abc@gmail.com" && password === "111111") {
+    window.location.href = "../../View/Dashboard/dashboard.html";
+  } else {
+    alert("Invalid email or password.");
+  }
+
+  return false;
 }
+
+// Sign Up Validation
+function validateSignupForm() {
+  const passwordElement = document.getElementById('signupPassword');
+  const confirmElement = document.getElementById('confirmPassword');
+
+  if (!passwordElement || !confirmElement) {
+    alert("Password or confirmation field not found.");
+    return false;
+  }
+
+  const password = passwordElement.value.trim();
+  const confirm = confirmElement.value.trim();
+
+  if (password !== confirm) {
+    alert("Passwords do not match!");
+    return false;
+  } else if (password.length < 6) {
+    alert("Password must be at least 6 characters.");
+    return false;
+  }
+
+  alert("Account created successfully!");
+  return false;
+}
+
+// Forgot Password Validation
+function validateForgotForm() {
+  const emailElement = document.getElementById('forgotEmail');
+
+  if (!emailElement) {
+    alert("Email field not found.");
+    return false;
+  }
+
+  const email = emailElement.value.trim();
+
+  if (email === "") {
+    alert("Please enter your email address.");
+    return false;
+  }
+
+  if (!email.includes("@") || !email.includes(".") || email.indexOf("@") > email.lastIndexOf(".")) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+
+  alert("A password reset link has been sent to your email.");
+  return false;
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function () {
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
+  const forgotForm = document.getElementById('forgotForm');
+
+  if (loginForm) loginForm.onsubmit = validateLoginForm;
+  if (signupForm) signupForm.onsubmit = validateSignupForm;
+  if (forgotForm) forgotForm.onsubmit = validateForgotForm;
+});

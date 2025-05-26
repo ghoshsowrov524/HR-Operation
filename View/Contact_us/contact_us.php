@@ -1,8 +1,16 @@
+ <?php
+session_start();
+if (!isset($_SESSION['status'])) {
+    header('location: ../User Authentication/Login.php');
+    exit;
+} 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Contact Us</title>
-    <link rel="stylesheet" href="../Asset/CSS/contact_us.css">
+    <link rel="stylesheet" href="../../Asset/CSS/contact_us.css">
 </head>
 <body>
 
@@ -26,6 +34,6 @@
     </form>
 </div>
 
-<script src="../Asset/JS/contact_us.js"></script>
+<script src="../../Asset/JS/contact_us.js"></script>
 </body>
 </html>

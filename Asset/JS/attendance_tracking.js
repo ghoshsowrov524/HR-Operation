@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("attendanceForm");
-    const cardContainer = document.getElementById("attendanceCards");
+    const tableBody = document.querySelector("#attendanceTable tbody");
 
-    form.addEventListener("submit", function(e) {
+    form.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const name = document.getElementById("employeeName").value.trim();
@@ -14,24 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-            <h4>${name}</h4>
-            <p><strong>Date:</strong> ${date}</p>
-            <p><strong>Status:</strong> ${status}</p>
-            <button class="deleteBtn">Delete</button>
+        // Create a new row in the table
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${name}</td>
+            <td>${date}</td>
+            <td>${status}</td>
+            <td><button class="deleteBtn">Delete</button></td>
         `;
 
-        cardContainer.appendChild(card);
+        tableBody.appendChild(row);
         form.reset();
         alert("Attendance recorded!");
     });
 
-    cardContainer.addEventListener("click", function(e) {
+    tableBody.addEventListener("click", function (e) {
         if (e.target.classList.contains("deleteBtn")) {
             if (confirm("Delete this attendance record?")) {
-                e.target.closest(".card").remove();
+                e.target.closest("tr").remove();
             }
         }
     });

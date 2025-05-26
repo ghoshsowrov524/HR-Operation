@@ -1,8 +1,16 @@
+ <?php
+session_start();
+if (!isset($_SESSION['status'])) {
+    header('location: ../User Authentication/Login.php');
+    exit;
+} 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Performance Insights</title>
-    <link rel="stylesheet" href="../Asset/CSS/performance_insights.css">
+    <link rel="stylesheet" href="../../Asset/CSS/performance_insights.css">
 </head>
 <body>
     <h2>Employee Performance Insights</h2>
@@ -29,6 +37,6 @@
         <tbody></tbody>
     </table>
 
-    <script src="../Asset/JS/performance_insights.js"></script>
+    <script src="../../Asset/JS/performance_insights.js"></script>
 </body>
 </html>

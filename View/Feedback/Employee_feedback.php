@@ -1,8 +1,16 @@
+ <?php
+session_start();
+if (!isset($_SESSION['status'])) {
+    header('location: ../User Authentication/Login.php');
+    exit;
+} 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Employee Feedback</title>
-    <link rel="stylesheet" href="../Asset/CSS/employee_feedback.css">
+    <link rel="stylesheet" href="../../Asset/CSS/employee_feedback.css">
 </head>
 <body>
     <h2>Employee Feedback Form</h2>
@@ -27,6 +35,6 @@
         <tbody></tbody>
     </table>
 
-    <script src="../Asset/JS/employee_feedback.js"></script>
+    <script src="../../Asset/JS/employee_feedback.js"></script>
 </body>
 </html>

@@ -1,7 +1,16 @@
-<!DOCTYPE html><html>
+ <?php
+session_start();
+if (!isset($_SESSION['status'])) {
+    header('location: ../User Authentication/Login.php');
+    exit;
+} 
+
+?>
+<!DOCTYPE html>
+<html>
 <head>
     <title>Leave Management</title>
-    <link rel ="stylesheet" href ="../Asset/CSS/Leave_management.css">
+    <link rel ="stylesheet" href ="../../Asset/CSS/Leave_management.css">
 </head>
 <body>
     <h2>Leave Request Form</h2>
@@ -34,7 +43,7 @@
                 <td colspan="2" style="text-align: center;"><button type="submit">Submit</button></td>
             </tr>
         </table>
-    </form><script src="../Asset/JS/Leave_management.js"></script>
+    </form><script src="../../Asset/JS/Leave_management.js"></script>
 
 </body>
 </html>

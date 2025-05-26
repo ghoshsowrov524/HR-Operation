@@ -1,8 +1,16 @@
+ <?php
+session_start();
+if (!isset($_SESSION['status'])) {
+    header('location: ../User Authentication/Login.php');
+    exit;
+} 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Notice Management</title>
-    <link rel="stylesheet" href="../Asset/CSS/notice_management.css">
+    <link rel="stylesheet" href="../../Asset/CSS/notice_management.css">
 </head>
 <body>
     <h2>HR Notice Management</h2>
@@ -27,6 +35,6 @@
         <tbody></tbody>
     </table>
 
-    <script src="../Asset/JS/notice_management.js"></script>
+    <script src="../../Asset/JS/notice_management.js"></script>
 </body>
 </html>
